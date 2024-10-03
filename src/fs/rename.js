@@ -19,7 +19,7 @@ const rename = async () => {
                 throw new Error('FS operation failed')
             }
 
-            fs.rename(path.join(PATH, oldName), path.join(PATH, newName), (err) => {} )
+            fs.rename(path.join(PATH, oldName), path.join(PATH, newName), () => {} )
         })
 
       
