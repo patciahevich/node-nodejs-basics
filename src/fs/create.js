@@ -1,15 +1,16 @@
-import fs from 'fs';
+import fs from 'node:fs';
+import path from 'path';
 
-const PATH = './files/fresh.txt';
+const PATH = path.join(import.meta.dirname, './files/fresh.txt');
 
 const create = async () => {
-    // Write your code here 
+
     fs.stat(PATH, (err) => {
         
         if(err) {
-            fs.writeFile(PATH, 'I am fresh and young', () => {})
+            fs.writeFile(PATH, 'I am fresh and young', () => {});
         } else {
-            throw new Error('FS operation failed')
+            throw new Error('FS operation failed');
         }
     })
 };

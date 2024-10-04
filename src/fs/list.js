@@ -1,13 +1,14 @@
 import fs from 'node:fs';
+import path from 'path';
 
-const PATH = 'files';
+const PATH = path.join(import.meta.dirname,  'files');
 
 const list = async () => {
     
     fs.stat(PATH, (err) => {
 
         if(err) {
-            throw new Error('FS operation failed')
+            throw new Error('FS operation failed');
         }
 
         fs.readdir(PATH, (err, files) => {

@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'path';
 
-const SRC = 'files';
-const DEST = 'files_copy';
+const SRC = path.join(import.meta.dirname, 'files');
+const DEST = path.join(import.meta.dirname, 'files_copy');
 
 const copy = async () => {
     
