@@ -19,7 +19,7 @@ const decompress = async () => {
 
     result.on('finish', () => {
         fs.unlink(SRC, () => {
-            console.log('Original file deleted.')
+            console.log('Decompression complete.')
         });
     })
 };
