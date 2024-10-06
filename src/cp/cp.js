@@ -3,7 +3,7 @@ import path from 'path';
 
 const PATH = path.join(import.meta.dirname, 'files', 'script.js');
 
-const spawnChildProcess = async (args) => {
+const spawnChildProcess = async (...args) => {
 
     const child = spawn("node", [PATH, ...args]);
 
@@ -16,4 +16,4 @@ const spawnChildProcess = async (args) => {
     })
 };
 
-spawnChildProcess(['--firstArg', '--secondArg', '--nextArg']);
+spawnChildProcess('--firstArg', '--secondArg', '--nextArg');
