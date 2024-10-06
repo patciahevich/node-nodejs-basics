@@ -15,7 +15,14 @@ const compress = async () => {
 
     source
     .pipe(gzip)
-    .pipe(result);
+    .pipe(result)
+    .on('error', (err) => {throw err});
+
+    result.on('finish', () => {
+        fs.unlink(SRC, () => {
+            console.log('Original file deleted.')
+        });
+    })
 };
 
 await compress();
