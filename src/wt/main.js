@@ -20,8 +20,8 @@ const performCalculations = async () => {
                 resolve(message)
             });
 
-            worker.on('error', (message) => {
-                reject(message)
+            worker.on('error', (err) => {
+                reject(err)
             });
         })
     }
