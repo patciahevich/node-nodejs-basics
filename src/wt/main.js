@@ -1,4 +1,4 @@
-import { Worker, workerData } from 'node:worker_threads';
+import { Worker } from 'node:worker_threads';
 import path from 'path';
 import os from 'node:os';
 
@@ -37,29 +37,28 @@ const performCalculations = async () => {
     }
 
     Promise.allSettled(createAllWorkers())
-    .then((results) => {
-        return results.map((item) => {
+        .then((results) => {
+            return results.map((item) => {
 
-            if(item.status === 'fulfilled') {
-                return {
-                    status: 'resolved',
-                    data: item.value
+                if(item.status === 'fulfilled') {
+                    return {
+                        status: 'resolved',
+                        data: item.value
+                    }
+                } else {
+                    return {
+                        status: 'error',
+                        data: null
+                    }
                 }
-            } else {
-                return {
-                    status: 'error',
-                    data: null
-                }
-            }
+            })
         })
-    })
-    .then((result) => {
-        console.log(result)
-    })
-    .catch((err) => {
-        throw err;
-    })
-
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((err) => {
+            throw err;
+        });
 };
 
 await performCalculations();

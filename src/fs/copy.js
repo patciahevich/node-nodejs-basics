@@ -15,7 +15,6 @@ const copy = async () => {
         fs.stat(DEST, (err) => {
 
             if(err) {
-
                 fs.mkdir(DEST, () => {})
                 fs.readdir(SRC, (err, files) => {
 

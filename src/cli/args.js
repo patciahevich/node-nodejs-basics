@@ -12,9 +12,7 @@ const parseArgs = () => {
                 item = `${item}, `
             }
         }
-
         return acc += `${item}`
-
     }), '')
 
     console.log(args)

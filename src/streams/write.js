@@ -10,7 +10,7 @@ const write = async () => {
     console.log('Hello! Write some text! \n(to exit press Ctrl + C) \n')
 
     process.stdin.on('data', (data) => {
-        writeStream.write(`${data} \n`)
+        writeStream.write(data)
     })
 };
 

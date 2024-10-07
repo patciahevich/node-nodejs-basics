@@ -14,11 +14,9 @@ const rename = async () => {
         }
 
         fs.stat(path.join(PATH, newName), (err) => {
-
             if(!err) {
                 throw new Error('FS operation failed');
             }
-
             fs.rename(path.join(PATH, oldName), path.join(PATH, newName), () => {} );
         })
 

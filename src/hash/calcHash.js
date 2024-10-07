@@ -10,17 +10,13 @@ const calculateHash = async () => {
     readStream.setEncoding('utf-8');
 
     const hash = createHash('sha256');
-
     let dataToHash = ''
 
     readStream
-    .on('data', (chunk) => {
-        dataToHash += chunk;
-
-    })
-    .on('end', () => {
-        console.log(`Hash : ${hash.update(dataToHash).digest('hex')}`)
-    })
+        .on('data', (chunk) => dataToHash += chunk)
+        .on('end', () => {
+            console.log(`Hash : ${hash.update(dataToHash).digest('hex')}`)
+        })
 
 };
 
